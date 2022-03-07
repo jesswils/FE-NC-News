@@ -10,8 +10,7 @@ export const fetchArticles = () => {
 
 export const articlesQueries = (sort) => {
     return api.get(`/api/articles?sort_by=${sort}`).then((res) => {
-        console.log(res.data)
-        return res.data
+        return res.data.articles
     })
 }
 

@@ -18,8 +18,10 @@ export const ArticleCard = ({ articles, setArticles }) => {
                 return (
                     <div className="article-card" key={article.article_id}>
                         <h2>{article.title}</h2>
-                        <p className='article-votes'>Votes: {article.votes}</p>
-                        <p>{article.comment_count}</p>
+                        <div className='votes-comments-articles'><p className='article-votes'>Votes: {article.votes}</p>
+                            <p className='articles-comments'>Comments: {article.comment_count}</p>
+                        </div>
+                        <p className='articles-body'>{article.body.slice(0, 100)} ...</p>
                     </div>
                 )
             })}

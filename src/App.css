@@ -11,7 +11,8 @@ p {
 }
 
 .article-card {
-	text-align: start;
+	display: flex;
+	flex-direction: column;
 	border-style: solid;
 	border-color: grey;
 	border-radius: 2em;
@@ -21,7 +22,24 @@ p {
 	margin-right: 0.3em;
 }
 
+.votes-comments-articles {
+	display: flex;
+}
+
 .article-votes {
-	text-align: right;
+	flex-grow: 2;
+	align-items: flex-end;
+	justify-content: end;
+	align-self: flex-end;
+	/* /* text-align: right;
+	margin-right: 1em; */
+}
+.articles-comments {
+	align-items: flex-start;
 	margin-right: 1em;
+}
+
+.articles-body {
+	text-align: center;
+	padding-left: 1em;
 }
