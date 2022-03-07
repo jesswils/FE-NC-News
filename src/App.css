@@ -1,3 +1,9 @@
 .app-header {
 	text-align: center;
 }
+
+.article-card {
+	border-style: solid;
+	border-color: brown;
+	border-width: 1em;
+}
