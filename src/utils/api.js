@@ -14,3 +14,15 @@ export const articlesQueries = (sort) => {
     })
 }
 
+export const fetchTopics = () => {
+    return api.get('/api/topics').then((res) => {
+        return res.data.topics
+    })
+}
+
+export const fetchArticlesByTopic = (topic) => {
+    return api.get(`/api/articles?topic=${topic}`).then((res) => {
+        console.log(res.data)
+        return res.data.articles
+    })
+}
