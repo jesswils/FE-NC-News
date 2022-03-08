@@ -12,13 +12,6 @@ const TopicsCard = () => {
         });
     }, []);
 
-    const handleClick = (topic) => {
-        fetchArticlesByTopic(topic).then((res) => {
-            setTopics(res)
-            console.log(res)
-        })
-    }
-
     return (
         <div>
 

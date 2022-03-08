@@ -5,6 +5,7 @@ import { TopicsPage } from './components/topics/TopicsPage';
 import { Header } from './components/Header';
 import NavBar from './components/NavBar';
 import TopicsCard from './components/topics/TopicsCard'
+import ArticlesPage from './components/articles/ArticlesPage';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/topics" element={<TopicsCard />} />
         <Route path="/articles" element={<ArticleCard />} />
         <Route path='/topics/:topic' element={<TopicsPage />} />
+        <Route path='/articles/:article_id' element={<ArticlesPage />} />
       </Routes>
     </div>
   );

@@ -8,6 +8,10 @@ h2 {
 	text-align: center;
 }
 
+h3 {
+	padding-left: 0.3em;
+}
+
 p {
 	margin-left: 0.5em;
 }
@@ -84,4 +88,16 @@ ul.nav {
 
 .topics-header {
 	text-transform: capitalize;
+}
+
+.single-article-body {
+	text-align: start;
+	padding-left: 1em;
+	line-height: 1.5em;
+	line-break: strict;
+}
+
+.single-article-author {
+	text-align: end;
+	padding-right: 1em;
 }
