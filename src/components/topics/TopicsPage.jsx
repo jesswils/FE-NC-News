@@ -1,23 +1,21 @@
-import * as api from '../../utils/api'
 import { useEffect, useState } from 'react'
-import { SortBy } from './SortBy';
+import { useParams } from 'react-router-dom'
+import { fetchArticlesByTopic } from '../../utils/api'
 
-export const ArticleCard = () => {
-    const [isLoading, setIsLoading] = useState(true);
-    const [articles, setArticles] = useState([])
+export const TopicsPage = () => {
+    let { topic } = useParams()
+    const [topicArticles, setTopicArticles] = useState([])
+
     useEffect(() => {
-        setIsLoading(true);
-        api.fetchArticles().then((articles) => {
-            setArticles(articles);
-            setIsLoading(false);
-        });
-    }, []);
+        fetchArticlesByTopic(topic).then((res) => {
+            setTopicArticles(res)
+            console.log(topicArticles)
+        }).catch((err) => { console.log(err) })
+    }, [])
 
-    if (isLoading) return <p>loading..</p>;
     return (
         <div>
-            <SortBy articles={articles} setArticles={setArticles} />
-            {articles.map((article) => {
+            {topicArticles.map((article) => {
                 return (
                     <div className="article-card" key={article.article_id}>
                         <h2>{article.title}</h2>
