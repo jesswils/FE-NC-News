@@ -7,7 +7,6 @@ const TopicsCard = () => {
     const [topics, setTopics] = useState([])
     useEffect(() => {
         api.fetchTopics().then((topics) => {
-            console.log(topics)
             setTopics(topics);
         });
     }, []);

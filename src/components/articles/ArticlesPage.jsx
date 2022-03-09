@@ -8,7 +8,6 @@ export default function ArticlesPage() {
 
     useEffect(() => {
         fetchArticlesById(article_id).then((article) => {
-            console.log(article)
             setArticle(article)
         })
     }, [])

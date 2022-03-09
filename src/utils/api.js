@@ -22,7 +22,6 @@ export const fetchTopics = () => {
 
 export const fetchArticlesByTopic = (topic) => {
     return api.get(`/api/articles?topic=${topic}`).then((res) => {
-        console.log(res.data)
         return res.data.articles
     })
 }
