@@ -1,14 +1,17 @@
 import * as api from '../../utils/api'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { SortBy } from './SortBy';
 
 export const ArticleCard = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [articles, setArticles] = useState([])
+
+    const { topic } = useParams();
+
     useEffect(() => {
         setIsLoading(true);
-        api.fetchArticles().then((articles) => {
+        api.fetchArticles(undefined, topic).then((articles) => {
             setArticles(articles);
             setIsLoading(false);
         });

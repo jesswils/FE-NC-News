@@ -1,9 +1,9 @@
-import { articlesQueries } from "../../utils/api"
+import { fetchArticles } from "../../utils/api"
 
 export const SortBy = ({ articles, setArticles }) => {
 
     const handleClick = (sort) => {
-        articlesQueries(sort).then((res) => {
+        fetchArticles(sort).then((res) => {
             setArticles(res)
         })
     }

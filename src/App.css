@@ -101,3 +101,29 @@ ul.nav {
 	text-align: end;
 	padding-right: 1em;
 }
+
+.topics-header {
+	text-align: center;
+}
+
+.topic-links-outer {
+	display: flex;
+	text-align: center;
+	padding-top: 5em;
+}
+
+.topic-links-inner {
+	margin: auto;
+}
+
+.coding-link {
+	font-size: 2.5em;
+}
+
+.cooking-link {
+	font-size: 2.5em;
+}
+
+.football-link {
+	font-size: 2.5em;
+}
