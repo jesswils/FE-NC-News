@@ -21,3 +21,11 @@ export const fetchArticlesById = (id) => {
         return res.data.article
     })
 }
+
+export const patchVote = (id, obj) => {
+    return api.patch(`/api/articles/${id}`, obj).then((res) => {
+        return res
+    }).catch((error) => {
+        console.log(error)
+    })
+}

@@ -1,22 +1,35 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { fetchArticlesById } from '../../utils/api'
+import { fetchArticlesById, patchVote } from '../../utils/api'
 
 export default function ArticlesPage() {
     let { article_id } = useParams()
     const [article, setArticle] = useState()
     const [vote, setVote] = useState(0)
-    // const [showHide, setShowHide] = useState(true)
+    const [userVoted, setUserVoted] = useState(false)
 
-    function decrementVote() {
-        setVote(prevVote => prevVote - 1)
+    function incrementVote(id) {
+        if (userVoted === false)
+            setVote(prevVote => prevVote + 1)
+        setUserVoted(true)
+        patchVote(id, { inc_votes: 1 }).then((res) => {
+            console.log(res)
+            if (res.status !== 200) {
+                setVote(+ 1)
+            }
+        })
     }
 
-    function incrementVote() {
-        setVote(prevVote => prevVote + 1)
-    }
-
-    function toggleClick() {
+    function decrementVote(id) {
+        if (userVoted === true)
+            setVote(prevVote => prevVote - 1)
+        setUserVoted(false)
+        patchVote(id, { inc_votes: -1 }).then((res) => {
+            console.log(res)
+            if (res.status !== 200) {
+                setVote(-1)
+            }
+        })
     }
 
     useEffect(() => {
@@ -34,8 +47,10 @@ export default function ArticlesPage() {
             <dt>
                 Votes:   {article?.votes + vote}
             </dt>
-            <button onClick={incrementVote}></button>
-            <button onClick={decrementVote}></button>
+            <dt>
+                <button disabled={userVoted === true} onClick={() => { incrementVote(article_id) }}>👍</button>
+                <button disabled={userVoted === false} onClick={() => { decrementVote(article_id) }}>👎</button>
+            </dt>
         </dl>
     )
 }
