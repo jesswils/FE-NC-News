@@ -102,6 +102,27 @@ ul.nav {
 	padding-right: 1em;
 }
 
+.comments {
+	display: flex;
+	flex-direction: column;
+}
+
+.comment-page-author {
+	font-size: 1.1em;
+	padding-top: 0.5em;
+}
+
+.comment-page-body {
+	border-style: groove;
+	border-radius: 0.3em;
+	padding: 0.5em;
+}
+
+.comment-page-votes {
+	align-self: flex-end;
+	padding-right: 0.5em;
+}
+
 .topics-header {
 	text-align: center;
 }
