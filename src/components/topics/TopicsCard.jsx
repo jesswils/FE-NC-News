@@ -1,36 +1,21 @@
-import * as api from '../../utils/api'
-import { useEffect, useState } from 'react'
-import { fetchArticlesByTopic } from '../../utils/api'
 import { Link } from 'react-router-dom'
 
-const TopicsCard = () => {
-    const [topics, setTopics] = useState([])
-    useEffect(() => {
-        api.fetchTopics().then((topics) => {
-            console.log(topics)
-            setTopics(topics);
-        });
-    }, []);
-
-    const handleClick = (topic) => {
-        fetchArticlesByTopic(topic).then((res) => {
-            setTopics(res)
-            console.log(res)
-        })
-    }
-
+export const TopicsCard = () => {
     return (
-        <div>
-
-            {topics.map((topic) => {
-                return (
-                    <div key={topic.slug}>
-                        <Link to={`/topics/${topic.slug}`}> <p>{topic.slug}</p> </Link>
-                    </div>
-                )
-            })}
+        <div><h1 className='topics-header'>Topics:</h1>
+            <div className='topic-links-outer'>
+                <div className='topic-links-inner'>
+                    <Link to="/topics/coding" className='coding-link'>Coding</Link>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <Link to="/topics/cooking" className='cooking-link'>Cooking</Link>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <Link to="/topics/football" className='football-link'>Football</Link>
+                </div>
+            </div>
         </div>
     )
 }
-
-export default TopicsCard;
