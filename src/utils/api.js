@@ -27,3 +27,12 @@ export const patchVote = (id, obj) => {
         return res
     })
 }
+
+export const fetchCommentsById = (id, sort, order) => {
+    return api.get(`/api/articles/${id}/comments`, {
+        params: { sort_by: sort, order: order }
+    }).then((res) => {
+        console.log(res.data.comments)
+        return res.data.comments
+    })
+}

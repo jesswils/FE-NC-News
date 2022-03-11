@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { fetchArticlesById, patchVote } from '../../utils/api'
 import NotFound from '../errors/NotFound'
 import BadRequest from '../errors/BadRequest'
+import CommentsCard from './CommentsCard'
 
 export default function ArticlesPage() {
     let { article_id } = useParams()
@@ -37,7 +38,6 @@ export default function ArticlesPage() {
             <h3 className='single-article-title'>{article?.title}</h3>
             <h4 className='single-article-author'>{article?.author}</h4>
             <dt className='single-article-body'>{article?.body}</dt>
-            <dt>{article?.comment_count}</dt>
             <dt>
                 Votes:   {article?.votes + vote}
             </dt>
@@ -46,6 +46,7 @@ export default function ArticlesPage() {
                 <button disabled={vote === -1} onClick={() => { crementVote(-1) }}>👎</button>
             </dt>
             {requestFail ? <BadRequest /> : null}
+            <dt><Link to={`/articles/${article_id}/comments`}>{article?.comment_count} comments</Link></dt>
         </dl>
     )
 }
