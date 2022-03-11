@@ -5,6 +5,7 @@ import { Header } from './components/Header';
 import NavBar from './components/NavBar';
 import { TopicsCard } from './components/topics/TopicsCard'
 import ArticlesPage from './components/articles/ArticlesPage';
+import NotFound from './components/errors/NotFound';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/articles" element={<ArticleCard />} />
         <Route path='/topics/:topic' element={<ArticleCard />} />
         <Route path='/articles/:article_id' element={<ArticlesPage />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );
