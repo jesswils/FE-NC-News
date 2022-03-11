@@ -11,6 +11,9 @@ h2 {
 h3 {
 	padding-left: 0.3em;
 }
+h4 {
+	text-align: center;
+}
 
 p {
 	margin-left: 0.5em;
@@ -21,7 +24,7 @@ ul {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #333;
+	/* background-color: #333; */
 }
 
 li {
@@ -121,6 +124,15 @@ ul.nav {
 .comment-page-votes {
 	align-self: flex-end;
 	padding-right: 0.5em;
+}
+
+.comment-form {
+	display: flex;
+	flex: 0 0 100%;
+}
+
+.comment-form-child {
+	margin: auto 0;
 }
 
 .topics-header {

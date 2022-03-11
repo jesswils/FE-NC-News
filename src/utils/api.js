@@ -32,7 +32,14 @@ export const fetchCommentsById = (id, sort, order) => {
     return api.get(`/api/articles/${id}/comments`, {
         params: { sort_by: sort, order: order }
     }).then((res) => {
-        console.log(res.data.comments)
         return res.data.comments
+    })
+}
+
+export const postCommentById = (id, comment) => {
+    return api.post(`/api/articles/${id}/comments`, {
+        body: comment, username: 'cooljmessy'
+    }).then((res) => {
+        return console.log(res)
     })
 }
