@@ -7,7 +7,6 @@ export default function ArticlesPage() {
     let { article_id } = useParams()
     const [article, setArticle] = useState()
     const [vote, setVote] = useState(0)
-    const [userVoted, setUserVoted] = useState(false)
     const [errorPage, setErrorPage] = useState(false)
 
     function crementVote(vote) {
