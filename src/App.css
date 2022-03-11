@@ -137,3 +137,7 @@ ul.nav {
 	font-size: 3em;
 	text-align: center;
 }
+
+.bad-request {
+	text-align: justify;
+}

@@ -25,7 +25,5 @@ export const fetchArticlesById = (id) => {
 export const patchVote = (id, obj) => {
     return api.patch(`/api/articles/${id}`, obj).then((res) => {
         return res
-    }).catch((error) => {
-        console.log(error)
     })
 }
