@@ -4,7 +4,6 @@ import { fetchCommentsById } from '../../utils/api'
 import PostComment from './PostComment'
 
 export default function CommentsCard() {
-
     let { article_id } = useParams()
     const [comment, setComment] = useState()
     const [isLoading, setIsLoading] = useState(true)
@@ -12,6 +11,7 @@ export default function CommentsCard() {
     useEffect(() => {
         setIsLoading(true)
         fetchCommentsById(article_id).then((comment) => {
+            console.log(comment)
             setComment(comment)
             setIsLoading(false)
         }).catch(() => {

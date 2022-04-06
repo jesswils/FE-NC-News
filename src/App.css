@@ -11,7 +11,7 @@ h2 {
 h3 {
 	padding-left: 0.3em;
 }
-h4 {
+h6 {
 	text-align: center;
 }
 
@@ -128,11 +128,12 @@ ul.nav {
 
 .comment-form {
 	display: flex;
-	flex: 0 0 100%;
+	flex-direction: column;
+	justify-content: space-evenly;
 }
 
-.comment-form-child {
-	margin: auto 0;
+.posted-comment {
+	text-align: center;
 }
 
 .topics-header {

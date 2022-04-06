@@ -6,6 +6,7 @@ export default function PostComment() {
     const { article_id } = useParams();
 
     const [comment, setComment] = useState('')
+    const [postSuccess, setPostSuccess] = useState(false)
 
     const handleInput = (e) => {
         setComment(e.target.value)
@@ -17,24 +18,22 @@ export default function PostComment() {
         postCommentById(article_id, comment).then((res) => {
             setComment((prevComment) => [res, ...prevComment])
         })
+        setPostSuccess(true)
         setComment('')
     }
 
-    return (<div>
-        <h4>You are logged in as cooljmessy</h4>
+    return (
         <div className='comment-form'>
             <form onSubmit={handleSubmit}>
-                <div className='comment-form-child'>
-                    <label>
-                        Post a comment:
-                        <br></br>
-                        <input type="text" name="comment" value={comment} onChange={handleInput} />
-                    </label>
-                    <button type="
+                <label>
+                    Post a comment
+                </label>
+                <input type="text" name="comment" value={comment} onChange={handleInput} />
+                <button type="
                 submit">Send</button>
-                </div>
+                {postSuccess && <p className='posted-comment'>Comment posted!</p>}
+                <h6>You are logged in as cooljmessy</h6>
             </form>
         </div>
-    </div>
     )
 }
