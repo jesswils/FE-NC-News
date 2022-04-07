@@ -11,7 +11,6 @@ export default function CommentsCard() {
     useEffect(() => {
         setIsLoading(true)
         fetchCommentsById(article_id).then((comment) => {
-            console.log(comment)
             setComment(comment)
             setIsLoading(false)
         }).catch(() => {
@@ -21,18 +20,17 @@ export default function CommentsCard() {
     if (isLoading) return <p>loading..</p>;
     return (<>
         <PostComment />
-        {comment.map((comments) => {
-            return (
-                <div key={comments.comment_id} className='comments'>
-                    <ul>
-                        <li className='comment-page-author'>{comments.author}</li>
-                        <li className='comment-page-body'>{comments.body}</li>
-                        <li className='comment-page-votes'>votes: {comments.votes}</li>
-                    </ul>
-                </div>
-
-            )
-        })}
+        {
+            comment.map((comments) => {
+                return (
+                    <section key={comments.comment_id} className='comments'>
+                        <h2 className='comment-page-author'>{comments.author}</h2>
+                        <p className='comment-page-body'>{comments.body}</p>
+                        <p className='comment-page-votes'>votes: {comments.votes}</p>
+                    </section>
+                )
+            })
+        }
     </>
     )
 }
