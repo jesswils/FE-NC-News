@@ -15,7 +15,7 @@ export default function CommentsCard() {
             setIsLoading(false)
         }).catch(() => {
         })
-    }, [])
+    }, [article_id])
 
     if (isLoading) return <p>loading..</p>;
     return (<>

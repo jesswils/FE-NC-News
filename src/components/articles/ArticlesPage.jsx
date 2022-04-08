@@ -26,7 +26,7 @@ export default function ArticlesPage() {
         }).catch(() => {
             setErrorPage(true)
         })
-    }, [])
+    }, [article_id])
 
     if (errorPage) {
         return <NotFound />
