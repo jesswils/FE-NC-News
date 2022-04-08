@@ -6,21 +6,22 @@ import { SortBy } from './SortBy';
 export const ArticleCard = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [articles, setArticles] = useState([])
+    const [sort, setSort] = useState()
+    const [order, setOrder] = useState()
 
     const { topic } = useParams();
 
     useEffect(() => {
-        setIsLoading(true);
-        api.fetchArticles(undefined, topic).then((articles) => {
+        api.fetchArticles(sort, order, topic).then((articles) => {
             setArticles(articles);
             setIsLoading(false);
         });
-    }, []);
+    }, [sort, order, topic]);
 
     if (isLoading) return <p>loading..</p>;
     return (
         <div>
-            <SortBy articles={articles} setArticles={setArticles} />
+            <SortBy setSort={setSort} setOrder={setOrder} />
             {articles.map((article) => {
                 return (
                     <div className="article-card" key={article.article_id}>

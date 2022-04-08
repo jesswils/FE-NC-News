@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const api = axios.create({ baseURL: 'https://nc-news-example-seminar-3-8.herokuapp.com/' })
 
-export const fetchArticles = (sort, topic) => {
+export const fetchArticles = (sort, order, topic) => {
     return api.get('/api/articles', {
-        params: { sort_by: sort, topic: topic }
+        params: { sort_by: sort, order: order, topic: topic, }
     }).then((res) => {
         return res.data.articles
     })
