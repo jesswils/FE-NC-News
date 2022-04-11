@@ -43,3 +43,7 @@ export const postCommentById = (id, comment) => {
         return console.log(res)
     })
 }
+
+export const deleteCommentById = (id) => {
+    return api.delete(`/api/articles/${id}`)
+}
