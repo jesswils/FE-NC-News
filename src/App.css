@@ -149,17 +149,25 @@ ul.nav {
 	width: 20%;
 	height: 2rem;
 	font-size: 18px;
-	/* position: absolute; */
 	text-align: center;
 	padding-bottom: 2%;
 }
 .submit-button:hover {
-	background-color: rgb(245, 245, 78);
+	background-color: '#0362cc';
 	transition: 1s background ease;
 }
 
 .posted-comment {
 	text-align: center;
+}
+
+.delete-comment {
+	margin-left: 85%;
+	width: 10%;
+	height: 2rem;
+	font-size: 14px;
+	text-align: center;
+	padding-bottom: 1%;
 }
 
 .topics-header {
