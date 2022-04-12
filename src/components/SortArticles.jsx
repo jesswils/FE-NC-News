@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export const SortBy = ({ setSort, setOrder }) => {
+export const SortArticles = ({ setSort, setOrder }) => {
 
     const [currentValue, setCurrentValue] = useState()
 

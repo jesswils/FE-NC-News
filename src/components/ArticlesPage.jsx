@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { fetchArticlesById, patchVote } from '../../utils/api'
-import NotFound from '../errors/NotFound'
-import BadRequest from '../errors/BadRequest'
+import { fetchArticlesById, patchVote } from '../utils/api'
+import NotFound from './errors/NotFound'
+import BadRequest from './errors/BadRequest'
 
 export default function ArticlesPage() {
     let { article_id } = useParams()

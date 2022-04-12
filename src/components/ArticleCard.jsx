@@ -1,8 +1,8 @@
-import * as api from '../../utils/api'
+import * as api from '../utils/api'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { SortBy } from './SortBy';
-import NotFound from '../errors/NotFound';
+import { SortArticles } from './SortArticles';
+import NotFound from './errors/NotFound';
 
 export const ArticleCard = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +28,7 @@ export const ArticleCard = () => {
     if (isLoading) return <p>loading..</p>;
     return (
         <div>
-            <SortBy setSort={setSort} setOrder={setOrder} />
+            <SortArticles setSort={setSort} setOrder={setOrder} />
             {articles.map((article) => {
                 return (
                     <div className="article-card" key={article.article_id}>

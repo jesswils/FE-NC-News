@@ -1,12 +1,12 @@
 import './App.css';
 import { Routes, Route, } from 'react-router-dom'
-import { ArticleCard } from './components/articles/ArticleCard';
+import { ArticleCard } from './components/ArticleCard';
 import { Header } from './components/Header';
 import NavBar from './components/NavBar';
-import { TopicsCard } from './components/topics/TopicsCard'
-import ArticlesPage from './components/articles/ArticlesPage';
-import NotFound from './components/errors/NotFound';
-import CommentsCard from './components/articles/CommentsCard';
+import { TopicsCard } from './components/TopicsPage'
+import ArticlesPage from './components/ArticlesPage';
+import NotFound from './components/errors/NotFound'
+import CommentsCard from './components/CommentsCard';
 
 function App() {
 

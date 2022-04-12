@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { postCommentById } from '../../utils/api'
+import { postCommentById } from '../utils/api'
 
-export default function PostComment() {
+export default function CommentForm() {
     const { article_id } = useParams();
 
     const [comment, setComment] = useState('')

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchCommentsById, deleteCommentById } from '../../utils/api';
-import PostComment from './PostComment';
+import { fetchCommentsById, deleteCommentById } from '../utils/api';
+import CommentForm from './CommentForm'
 
 export default function CommentsCard() {
     let { article_id } = useParams();
@@ -35,7 +35,7 @@ export default function CommentsCard() {
     if (isLoading) return <p>loading..</p>;
     return (
         <>
-            <PostComment />
+            <CommentForm />
             {deleteSuccess && <p>Comment deleted!</p>}
             {comment.map((comments) => {
                 return (
