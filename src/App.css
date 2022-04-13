@@ -62,6 +62,10 @@ ul.nav {
 	text-align: center;
 }
 
+.logo {
+	align-items: center;
+}
+
 .article-card-wrapper {
 	display: grid;
 	grid-template-columns: 380px 380px 380px;
