@@ -27,19 +27,22 @@ export const ArticleCard = () => {
     }
     if (isLoading) return <p>loading..</p>;
     return (
-        <div>
+        <>
             <SortArticles setSort={setSort} setOrder={setOrder} />
-            {articles.map((article) => {
-                return (
-                    <div className="article-card" key={article.article_id}>
-                        <Link to={`/articles/${article.article_id}`}><h2>{article.title}</h2></Link>
-                        <div className='votes-comments-articles'><p className='article-votes'>Votes: {article.votes}</p>
-                            <p className='articles-comments'>Comments: {article.comment_count}</p>
+            <div className='article-card-wrapper'>
+                {articles.map((article) => {
+                    return (
+                        <div className="article-card" key={article.article_id}>
+                            <Link to={`/articles/${article.article_id}`}><h2>{article.title}</h2></Link>
+                            <div className='votes-comments-articles'><p className='article-votes'>Votes: {article.votes}</p>
+                                <p className='articles-comments'>Comments: {article.comment_count}</p>
+                            </div>
+                            <p className='articles-body'>{article.body.slice(0, 150)} ...</p>
                         </div>
-                        <p className='articles-body'>{article.body.slice(0, 100)} ...</p>
-                    </div>
-                )
-            })}
-        </div>
+
+                    )
+                })}
+            </div>
+        </>
     )
 }

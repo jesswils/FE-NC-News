@@ -34,7 +34,7 @@ export default function ArticlesPage() {
 
     return (
         <dl>
-            <h3 className='single-article-title'>{article?.title}</h3>
+            <h2 className='single-article-title'>{article?.title}</h2>
             <h4 className='single-article-author'>{article?.author}</h4>
             <dt className='single-article-body'>{article?.body}</dt>
             <dt>
