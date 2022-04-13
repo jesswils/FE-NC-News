@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const NavBar = () => {
+export const NavBar = () => {
     return (
         <ul className='nav'>
             <li>
@@ -16,6 +16,3 @@ const NavBar = () => {
         </ul>
     )
 }
-
-
-export default NavBar;
