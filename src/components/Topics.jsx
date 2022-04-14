@@ -5,7 +5,7 @@ import football from '../assets/football.png'
 
 export const Topics = () => {
     return (
-        <div><h1 className='topics-header'>Topics:</h1>
+        <div className='topics'>
             <div className='topic-links-outer'>
                 <div className='topic-links-inner'>
                     <Link to="/topics/coding" className='topic-links'>Coding</Link>
