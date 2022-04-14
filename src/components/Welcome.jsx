@@ -1,4 +1,5 @@
 import logo from '../assets/homepage.png'
+import { Link } from 'react-router-dom'
 
 export default function Welcome() {
     return (
@@ -11,8 +12,8 @@ export default function Welcome() {
             </div>
             <p className='homepage-paragraph'>Look through a selection of articles or browse via topics</p>
             <div className='button-wrapper'>
-                <button className='homepage-button'>Articles</button>
-                <button className='homepage-button'>Topics</button>
+                <Link to="/articles" className='homepage-button'>Articles</Link >
+                <Link to="/topics" className='homepage-button'>Topics</Link>
                 <br>
                 </br>
                 <br></br>
