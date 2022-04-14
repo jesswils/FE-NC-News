@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom'
 import { fetchArticlesById, patchVote } from '../utils/api'
 import NotFound from './errors/NotFound'
 import BadRequest from './errors/BadRequest'
-import Footer from './Footer'
 
 export default function Articles() {
     let { article_id } = useParams()
@@ -49,7 +48,6 @@ export default function Articles() {
                 {requestFail ? <BadRequest /> : null}
                 <dt><Link to={`/articles/${article_id}/comments`}>{article?.comment_count} comments</Link></dt>
             </dl>
-            <Footer />
         </>
     )
 }
