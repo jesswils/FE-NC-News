@@ -15,4 +15,8 @@ npm i
 npm start
 ```
 
+Credits:
+- [Illustrations](https://www.vecteezy.com/members/onyxprj_art)
+- [Icons](https://www.flaticon.com/free-icons/)
+
 Note: The minimum version of Node.js required to run this project is: **v14.18.1**
