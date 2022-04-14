@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 export const NavBar = () => {
     return (
         <ul className='nav'>
+            <header className="app-header">NC News</header>
             <li>
                 <Link to="/">Home</Link>
             </li>
