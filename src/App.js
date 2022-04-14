@@ -1,7 +1,6 @@
 import './App.css';
 import { Routes, Route, } from 'react-router-dom'
 import { Articles } from './components/Articles';
-import { Header } from './components/Header';
 import { NavBar } from './components/NavBar';
 import { Topics } from './components/Topics'
 import ArticleCard from './components/ArticleCard';
@@ -13,9 +12,6 @@ function App() {
 
   return (
     <div>
-      <header className="app-header">
-        {/* <Header /> */}
-      </header>
       <NavBar />
       <Routes>
         <Route path='/' element={<Welcome />} />
