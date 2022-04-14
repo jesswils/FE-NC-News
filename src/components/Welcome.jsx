@@ -9,16 +9,12 @@ export default function Welcome() {
             <div className='homepage'>
                 <img src={logo} alt={"logo"} className='logo' />
                 <img src={logo} alt={"logo"} className='logo' />
-            </div>
-            <p className='homepage-paragraph'>Look through a selection of articles or browse via topics</p>
-            <div className='button-wrapper'>
-                <Link to="/articles" className='homepage-button'>Articles</Link >
-                <Link to="/topics" className='homepage-button'>Topics</Link>
-                <br>
-                </br>
-                <br></br>
-                <br></br>
-                <br></br>
+
+                <p className='homepage-paragraph'>Look through a selection of articles or browse via topics</p>
+                <div className='button-wrapper'>
+                    <Link to="/articles" className='homepage-button'>Articles</Link >
+                    <Link to="/topics" className='homepage-button'>Topics</Link>
+                </div>
             </div>
         </div>
     )

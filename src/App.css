@@ -10,6 +10,10 @@ dt a {
 	text-decoration: none;
 }
 
+app {
+	width: 100%;
+}
+
 dt a:hover {
 	text-decoration: underline;
 }
@@ -64,10 +68,13 @@ ul.nav {
 	overflow: hidden;
 }
 
-.nav {
-	position: sticky;
+.nav-wrapper {
 	display: flex;
-	justify-content: space-between;
+}
+
+.nav {
+	width: 100%;
+	justify-content: space-evenly;
 	align-items: center;
 	height: 60px;
 	box-shadow: rgba(180, 215, 253, 0.157) 0px 5px,
@@ -81,23 +88,23 @@ ul.nav {
 
 .homepage {
 	display: flex;
-}
-.logo {
-	width: 150px;
-	margin: 10px 0 20px 20px;
+	width: 100%;
 }
 
 .homepage-header {
+	margin: auto;
+	margin-top: 8%;
+	margin-bottom: 5%;
 	color: #f2f2f2;
-	font-family: 'Helvetica Neue', sans-serif;
-	font-size: 70px;
 	font-weight: bold;
 	letter-spacing: -1px;
+	font-family: 'Helvetica Neue', sans-serif;
+	font-size: 200px;
 	line-height: 1;
 	text-align: center;
 	background-color: #b4d7fe;
 	background-repeat: no-repeat;
-	width: 100%;
+	width: 65%;
 }
 
 .homepage-tagline {
@@ -119,9 +126,9 @@ ul.nav {
 	padding: 10px;
 }
 
-.button-wrapper {
+/* .button-wrapper {
 	margin-top: 10px;
-}
+} */
 
 .homepage-button {
 	background-color: transparent;
@@ -134,11 +141,6 @@ ul.nav {
 	line-height: 24px;
 	padding: 13px 20px;
 	margin-left: 35px;
-	position: relative;
-	text-decoration: none;
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
 }
 
 .homepage-button:hover,
@@ -393,7 +395,7 @@ ul.nav {
 	box-sizing: border-box;
 	color: #0d172a;
 	cursor: pointer;
-	font-size: 10em;
+	font-size: 2em;
 	font-family: 'Basier circle', -apple-system, system-ui, 'Segoe UI', Roboto,
 		'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
 		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -405,9 +407,6 @@ ul.nav {
 	text-decoration-thickness: auto;
 	transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
 	box-shadow: 0px 1px 6px rgb(166, 175, 195);
-	user-select: none;
-	-webkit-user-select: none;
-	touch-action: manipulation;
 }
 
 .topic-links:hover {
@@ -418,6 +417,89 @@ ul.nav {
 .topic-icon {
 	height: 175px;
 	margin-bottom: 50px;
+}
+
+/*  */
+/* homepage */
+
+.homepage {
+	display: flex;
+	flex-direction: column;
+}
+
+.homepage-images {
+	margin: auto;
+}
+
+.logo {
+	margin: auto;
+	width: fit-content;
+}
+
+.homepage-paragraph {
+	text-align: center;
+	font-size: larger;
+	font-weight: 500;
+	color: #f2f2f2;
+	background: #a5d0f0;
+	font-size: 75px;
+	line-height: 74px;
+	font-weight: 700;
+	margin: 0 5px 24px;
+	float: left;
+	padding: 10px;
+	margin: 0 5px 24px;
+}
+
+.homepage-tagline {
+	font-size: 75px;
+	color: #013167;
+	text-shadow: 1px 0px 2px #dcdcdc;
+}
+
+.button-wrapper {
+	display: flex;
+}
+
+.homepage-button {
+	margin: auto;
+	background-color: transparent;
+	border: 1px solid #266db6;
+	box-sizing: border-box;
+	color: #013167;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	font-size: 35px;
+	line-height: 24px;
+	padding: 16px 23px;
+	position: relative;
+	text-decoration: none;
+}
+
+.homepage-button:hover,
+.homepage-button:active {
+	outline: 0;
+}
+
+.homepage-button:hover {
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.homepage-button:before {
+	background-color: #d5edf6;
+	content: '';
+	height: calc(100% + 3px);
+	position: absolute;
+	right: -7px;
+	top: -9px;
+	transition: background-color 300ms ease-in;
+	width: 100%;
+	z-index: -1;
+}
+
+.homepage-button:hover:before {
+	background-color: #007bff64;
 }
 
 /*  */
@@ -442,13 +524,14 @@ ul.nav {
 /*  */
 @media screen and (min-width: 1170px) {
 	.app-header {
-		margin-left: 20px;
+		margin-left: -150px;
 	}
+
 	.nav {
-		position: sticky;
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		flex-direction: row;
+		width: 100%;
+		justify-content: space-evenly;
 		height: 60px;
 		box-shadow: rgba(180, 215, 253, 0.157) 0px 5px,
 			rgba(180, 215, 253, 0.3) 0px 10px, rgba(180, 215, 253, 0.2) 0px 15px,
@@ -476,100 +559,6 @@ ul.nav {
 		font-size: 2em;
 		font-weight: bold;
 		overflow: hidden;
-	}
-
-	.homepage {
-		display: flex;
-		margin-top: 100px;
-		margin-bottom: 100px;
-	}
-	.logo {
-		margin: auto;
-		width: fit-content;
-	}
-
-	.homepage-paragraph {
-		text-align: center;
-		font-size: larger;
-		font-weight: 500;
-		color: #f2f2f2;
-		background: #a5d0f0;
-		font-size: 75px;
-		line-height: 74px;
-		font-weight: 700;
-		margin: 0 5px 24px;
-		float: left;
-		padding: 10px;
-		margin: 0 5px 24px;
-	}
-
-	.homepage-header {
-		color: #f2f2f2;
-		font-family: 'Helvetica Neue', sans-serif;
-		font-size: 200px;
-		font-weight: bold;
-		letter-spacing: -1px;
-		line-height: 1;
-		text-align: center;
-		background-color: #b4d7fe;
-		background-repeat: no-repeat;
-		width: 65%;
-		margin-left: 250px;
-		margin-bottom: 100px;
-	}
-
-	.homepage-tagline {
-		font-size: 75px;
-		color: #013167;
-		text-shadow: 1px 0px 2px #dcdcdc;
-	}
-
-	.button-wrapper {
-		margin-top: 350px;
-	}
-
-	.homepage-button {
-		background-color: transparent;
-		border: 1px solid #266db6;
-		box-sizing: border-box;
-		color: #013167;
-		font-family: 'Roboto', sans-serif;
-		font-weight: bold;
-		font-size: 35px;
-		line-height: 24px;
-		padding: 16px 23px;
-		margin-left: 390px;
-		position: relative;
-		text-decoration: none;
-		user-select: none;
-		-webkit-user-select: none;
-		touch-action: manipulation;
-	}
-
-	.homepage-button:hover,
-	.homepage-button:active {
-		outline: 0;
-	}
-
-	.homepage-button:hover {
-		background-color: transparent;
-		cursor: pointer;
-	}
-
-	.homepage-button:before {
-		background-color: #d5edf6;
-		content: '';
-		height: calc(100% + 3px);
-		position: absolute;
-		right: -7px;
-		top: -9px;
-		transition: background-color 300ms ease-in;
-		width: 100%;
-		z-index: -1;
-	}
-
-	.homepage-button:hover:before {
-		background-color: #007bff64;
 	}
 
 	.articles {
@@ -736,45 +725,23 @@ ul.nav {
 	.topic-links-inner {
 		margin: auto;
 	}
-
-	.topic-links {
-		display: grid;
-		background-color: #fff;
-		border: 0 solid #e2e8f0;
-		border-radius: 1.5rem;
-		box-sizing: border-box;
-		color: #0d172a;
-		cursor: pointer;
-		font-size: 2em;
-		font-family: 'Basier circle', -apple-system, system-ui, 'Segoe UI', Roboto,
-			'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-			'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-		font-weight: 600;
-		line-height: 1;
-		padding: 1rem 1.6rem;
-		margin: 50px 0px 0px 0px;
-		text-align: center;
-		text-decoration: none #0d172a solid;
-		text-decoration-thickness: auto;
-		transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-		box-shadow: 0px 1px 6px rgb(166, 175, 195);
-		user-select: none;
-		-webkit-user-select: none;
-		touch-action: manipulation;
-	}
-
-	.topic-links:hover {
-		background-color: #013167;
-		color: #fff;
-	}
-
-	.topic-icon {
-		height: 175px;
-		margin-bottom: 25px;
-	}
 }
 
 @media screen and (max-width: 770px) {
+	.homepage-header {
+		font-size: 25px;
+	}
+
+	.homepage {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.homepage-images {
+		margin: auto;
+		width: 5%;
+	}
+
 	.homepage-button {
 		padding: 16px 32px;
 	}
@@ -795,28 +762,6 @@ ul.nav {
 		font-size: 1.125rem;
 		padding: 1rem 2rem;
 	}
-	/* nav {
-		text-align: center;
-		margin: 0 auto;
-	}
-
-	li {
-		list-style-type: none;
-		overflow: hidden;
-		background-color: #333;
-	}
-
-	.nav li {
-		display: inline-block;
-		float: none;
-		margin: 0 auto;
-		color: rgb(255, 255, 255);
-		text-decoration: none;
-	}
-
-	li a:hover {
-		background-color: #111;
-	} */
 
 	.single-article-title {
 		text-align: start;
@@ -833,8 +778,6 @@ ul.nav {
 		text-align: start;
 		padding-left: 4%;
 		padding-right: 4%;
-		/* margin-right: 5em;
-		margin-left: 1em; */
 		font-weight: 300;
 		font-size: smaller;
 		line-height: 1.5em;
