@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { fetchArticlesById, patchVote } from '../utils/api'
 import NotFound from './errors/NotFound'
 import BadRequest from './errors/BadRequest'
+import Footer from './Footer'
 
 export default function Articles() {
     let { article_id } = useParams()
@@ -33,19 +34,22 @@ export default function Articles() {
     }
 
     return (
-        <dl>
-            <h2 className='single-article-title'>{article?.title}</h2>
-            <h4 className='single-article-author'>{article?.author}</h4>
-            <dt className='single-article-body'>{article?.body}</dt>
-            <dt>
-                Votes:   {article?.votes + vote}
-            </dt>
-            <dt>
-                <button disabled={vote === 1} onClick={() => { crementVote(1) }}>👍</button>
-                <button disabled={vote === -1} onClick={() => { crementVote(-1) }}>👎</button>
-            </dt>
-            {requestFail ? <BadRequest /> : null}
-            <dt><Link to={`/articles/${article_id}/comments`}>{article?.comment_count} comments</Link></dt>
-        </dl>
+        <>
+            <dl>
+                <h2 className='single-article-title'>{article?.title}</h2>
+                <h4 className='single-article-author'>{article?.author}</h4>
+                <dt className='single-article-body'>{article?.body}</dt>
+                <dt>
+                    Votes:   {article?.votes + vote}
+                </dt>
+                <dt>
+                    <button disabled={vote === 1} onClick={() => { crementVote(1) }}>👍</button>
+                    <button disabled={vote === -1} onClick={() => { crementVote(-1) }}>👎</button>
+                </dt>
+                {requestFail ? <BadRequest /> : null}
+                <dt><Link to={`/articles/${article_id}/comments`}>{article?.comment_count} comments</Link></dt>
+            </dl>
+            <Footer />
+        </>
     )
 }
