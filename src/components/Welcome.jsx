@@ -11,8 +11,8 @@ export default function Welcome() {
             </div>
             <p className='homepage-paragraph'>Look through a selection of articles or browse via topics</p>
             <div className='button-wrapper'>
-                <button className='button-51'>Articles</button>
-                <button className='button-51'>Topics</button>
+                <button className='homepage-button'>Articles</button>
+                <button className='homepage-button'>Topics</button>
                 <br>
                 </br>
                 <br></br>
