@@ -1,48 +1,53 @@
-import * as api from '../utils/api'
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { SortArticles } from './SortArticles';
-import NotFound from './errors/NotFound';
+import { useParams, Link } from 'react-router-dom'
+import { fetchArticlesById, patchVote } from '../utils/api'
+import NotFound from './errors/NotFound'
+import BadRequest from './errors/BadRequest'
 
-export const ArticleCard = () => {
-    const [isLoading, setIsLoading] = useState(true);
-    const [articles, setArticles] = useState([])
+export default function ArticleCard() {
+    let { article_id } = useParams()
+    const [article, setArticle] = useState()
+    const [vote, setVote] = useState(0)
     const [errorPage, setErrorPage] = useState(false)
-    const [sort, setSort] = useState()
-    const [order, setOrder] = useState()
+    const [requestFail, setRequestFail] = useState(false)
 
-    const { topic } = useParams();
+
+    function crementVote(vote) {
+        setVote(prevVote => prevVote + vote)
+        patchVote(article_id, { inc_votes: vote }).catch(() => {
+            setVote(-vote)
+            setRequestFail(true)
+        })
+    }
 
     useEffect(() => {
-        api.fetchArticles(sort, order, topic).then((articles) => {
-            setArticles(articles);
-            setIsLoading(false);
+        fetchArticlesById(article_id).then((article) => {
+            setArticle(article)
         }).catch(() => {
             setErrorPage(true)
         })
-    }, [sort, order, topic]);
+    }, [article_id])
 
     if (errorPage) {
         return <NotFound />
     }
-    if (isLoading) return <p>loading..</p>;
+
     return (
         <>
-            <SortArticles setSort={setSort} setOrder={setOrder} />
-            <div className='article-card-wrapper'>
-                {articles.map((article) => {
-                    return (
-                        <div className="article-card" key={article.article_id}>
-                            <Link to={`/articles/${article.article_id}`}><h2>{article.title}</h2></Link>
-                            <div className='votes-comments-articles'><p className='article-votes'>Votes: {article.votes}</p>
-                                <p className='articles-comments'>Comments: {article.comment_count}</p>
-                            </div>
-                            <p className='articles-body'>{article.body.slice(0, 150)} ...</p>
-                        </div>
-
-                    )
-                })}
-            </div>
+            <dl>
+                <h2 className='single-article-title'>{article?.title}</h2>
+                <h4 className='single-article-author'>{article?.author}</h4>
+                <dt className='single-article-body'>{article?.body}</dt>
+                <dt>
+                    Votes:   {article?.votes + vote}
+                </dt>
+                <dt>
+                    <button disabled={vote === 1} onClick={() => { crementVote(1) }}>👍</button>
+                    <button disabled={vote === -1} onClick={() => { crementVote(-1) }}>👎</button>
+                </dt>
+                {requestFail ? <BadRequest /> : null}
+                <dt><Link to={`/articles/${article_id}/comments`}>{article?.comment_count} comments</Link></dt>
+            </dl>
         </>
     )
 }
