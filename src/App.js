@@ -6,7 +6,7 @@ import { Topics } from './components/Topics'
 import ArticleCard from './components/ArticleCard';
 import NotFound from './components/errors/NotFound'
 import CommentsCard from './components/CommentsCard';
-import Welcome from './components/Welcome';
+import Homepage from './components/Homepage';
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
     <div>
       <NavBar />
       <Routes>
-        <Route path='/' element={<Welcome />} />
+        <Route path='/' element={<Homepage />} />
         <Route path="/topics" element={<Topics />} />
         <Route path="/articles" element={<Articles />} />
         <Route path='/topics/:topic' element={<Articles />} />
