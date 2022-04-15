@@ -1,6 +1,6 @@
 # Northcoders News
 
-NC News is a mobile-first, fullstack application built with my [NC News API](https://github.com/jesswils/nc-news-api). You can view the app [here](nc-news-jw-c273dc.netlify.app).
+NC News is a mobile-first, responsive fullstack application built with my [NC News API](https://github.com/jesswils/nc-news-api). You can view the app [here](nc-news-jw-c273dc.netlify.app).
 
 ---
 
